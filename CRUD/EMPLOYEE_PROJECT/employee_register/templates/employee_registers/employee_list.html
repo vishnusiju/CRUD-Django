@@ -1,0 +1,36 @@
+{% extends "employee_registers/base.html" %}
+
+<h1>welcome list</h1>
+
+{% block content %}
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Full Name</td>
+                <td>Mobile</td>
+                <td>Position</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employee_list %}
+                <tr>
+                    <td>{{ employee.fullname }}</td>
+                    <td>{{ employee.mobile }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>
+                        <!-- <button type="submit" href="{% url 'employee_update' employee.id %}" class="btn btn-success"><i style='font-size:24px' class='far'>&#xf044;</i></i>Submit</button> -->
+
+                        <!-- <a href="{% url 'employee_update' employee.id %}" class="btn text-secondary px-0"></a>
+                        <i style='font-size:24px' class='far'>&#xf044;</i> -->
+                        <button type="button" href="{% url 'employee_update' employee.id %}" class="btn btn-primary">Primary</button>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+
+
